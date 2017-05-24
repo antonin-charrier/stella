@@ -8,6 +8,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	public Transform parentToReturnTo = null;
 	public Transform placeholderParent = null;
 
+    public bool isDroppable = false;
+
 	GameObject placeholder = null;
 
 	public void OnBeginDrag(PointerEventData eventData) {
@@ -29,8 +31,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
 	public void OnDrag(PointerEventData eventData) {
 		this.transform.position = eventData.position;
-
-		if (placeholder.transform.parent != placeholderParent)
+		if (placeholder.transform.parent != placeholderParent && isDroppable)
 			placeholder.transform.SetParent (placeholderParent);
 
 		int newSiblingIndex = placeholderParent.childCount;

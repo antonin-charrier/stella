@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler {
 
 	public enum dropZones {HAND, TABLETOP, DECK}
-	public bool isDroppable = false;
 
 	public void OnPointerEnter(PointerEventData eventData) {
 		if (eventData.pointerDrag == null)
@@ -16,13 +15,13 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 		if (d != null) {
 			d.placeholderParent = this.transform;
 			if (d.placeholderParent.name == dropZones.TABLETOP.ToString ()) {
-				isDroppable = true;
+				d.isDroppable = true;
 			} else if (d.placeholderParent.name == dropZones.DECK.ToString ()) {
-				isDroppable = false;
+				d.isDroppable = false;
 			} else if (d.placeholderParent.name == dropZones.HAND.ToString ()) {
-				isDroppable = false;
+				d.isDroppable = false;
 			} else {
-				isDroppable = false;
+				d.isDroppable = false;
 			}
 		}
 	}
@@ -30,7 +29,7 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 	public void OnDrop(PointerEventData eventData) {
 		Draggable d = eventData.pointerDrag.GetComponent<Draggable> ();
 		Debug.Log (d.parentToReturnTo.name);
-		if (d != null && isDroppable) {
+		if (d != null && d.isDroppable) {
 			d.parentToReturnTo = this.transform;
 			Debug.Log (d.parentToReturnTo.name);
 		}

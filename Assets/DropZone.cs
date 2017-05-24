@@ -12,17 +12,24 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 			return;
 		
 		Draggable d = eventData.pointerDrag.GetComponent<Draggable> ();
+        Debug.Log(d.placeholderParent.name);
 		if (d != null) {
 			d.placeholderParent = this.transform;
-			if (d.placeholderParent.name == dropZones.TABLETOP.ToString ()) {
-				d.isDroppable = true;
-			} else if (d.placeholderParent.name == dropZones.DECK.ToString ()) {
-				d.isDroppable = false;
-			} else if (d.placeholderParent.name == dropZones.HAND.ToString ()) {
-				d.isDroppable = false;
-			} else {
-				d.isDroppable = false;
-			}
+            if (d.placeholderParent.name == dropZones.TABLETOP.ToString()) {
+                d.isDroppable = true;
+            } else if (d.placeholderParent.name == dropZones.DECK.ToString()) {
+                d.isDroppable = false;
+            } else if (d.placeholderParent.name == dropZones.HAND.ToString()) {
+                if (d.parentToReturnTo.name == dropZones.HAND.ToString())
+                {
+                    d.isDroppable = true;
+                } else
+                {
+                    d.isDroppable = false;
+                }
+            } else {
+                d.isDroppable = false;
+            }
 		}
 	}
 
@@ -35,13 +42,13 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 		}
 	}
 
-	public void OnPointerExit(PointerEventData eventData) {
-		if (eventData.pointerDrag == null)
-			return;
-		
-		Draggable d = eventData.pointerDrag.GetComponent<Draggable> ();
-		if (d != null && d.placeholderParent==this.transform) {
-			d.placeholderParent = d.parentToReturnTo;
-		}
+    public void OnPointerExit(PointerEventData eventData) {
+        if (eventData.pointerDrag == null)
+            return;
+
+        Draggable d = eventData.pointerDrag.GetComponent<Draggable>();
+        if (d != null && d.placeholderParent == this.transform) {
+            d.placeholderParent = d.parentToReturnTo;
+        }
 	}
 }

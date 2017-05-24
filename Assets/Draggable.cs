@@ -34,18 +34,24 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 		if (placeholder.transform.parent != placeholderParent && isDroppable)
 			placeholder.transform.SetParent (placeholderParent);
 
-		int newSiblingIndex = placeholderParent.childCount;
-		for (int i = 0; i < placeholderParent.childCount; i++) {
-			if (this.transform.position.x < placeholderParent.GetChild (i).position.x) {
-				newSiblingIndex = i;
-				if (placeholder.transform.GetSiblingIndex () < newSiblingIndex)
-					newSiblingIndex--;
-				break;
-			}
-		}
+        if (isDroppable)
+        {
+            int newSiblingIndex = placeholderParent.childCount;
+            for (int i = 0; i < placeholderParent.childCount; i++)
+            {
+                if (this.transform.position.x < placeholderParent.GetChild(i).position.x)
+                {
+                    newSiblingIndex = i;
+                    if (placeholder.transform.GetSiblingIndex() < newSiblingIndex)
+                        newSiblingIndex--;
+                    break;
+                }
+            }
 
-		placeholder.transform.SetSiblingIndex (newSiblingIndex);
-	}
+            placeholder.transform.SetSiblingIndex(newSiblingIndex);
+        }
+
+    }
 
 	public void OnEndDrag(PointerEventData eventData) {
 		this.transform.SetParent (parentToReturnTo);

@@ -13,7 +13,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	GameObject placeholder = null;
 
 	public void OnBeginDrag(PointerEventData eventData) {
-		placeholder = new GameObject ();
+        placeholder = new GameObject ();
 		placeholder.name = "CardPlaceholder";
 		placeholder.transform.SetParent (this.transform.parent );
 		LayoutElement le = placeholder.AddComponent<LayoutElement> ();
@@ -21,7 +21,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 		le.preferredHeight = this.GetComponent<LayoutElement> ().preferredHeight;
 		le.flexibleWidth = 0;
 		le.flexibleHeight = 0;
-		placeholder.transform.SetSiblingIndex (this.transform.GetSiblingIndex ());	
+		placeholder.transform.SetSiblingIndex (this.transform.GetSiblingIndex ());
 
 		parentToReturnTo = this.transform.parent;
 		placeholderParent = parentToReturnTo;

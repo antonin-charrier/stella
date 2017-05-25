@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CardCollection>
+  <Cards>
+    <Card name="Fisherman">
+      <Level>1</Level>
+      <Power>2</Power>
+      <LifePoints>7</LifePoints>
+    </Card>
+  </Cards>
+</CardCollection>

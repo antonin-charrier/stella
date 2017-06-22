@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using UnityEditor;
 using System.Collections;
 using System.Xml;
 using System.Xml.Serialization;
 
-public class Card : MonoBehaviour
+public class Card
 {
     [XmlAttribute("name")]
     public string name;
@@ -21,15 +19,5 @@ public class Card : MonoBehaviour
 
     [XmlElement("Description")]
     public string description;
-
-
-    public Card(string name, int level, int power, int lifePoints, string description)
-    {
-        this.name = name;
-        this.level = level;
-        this.power = power;
-        this.lifePoints = lifePoints;
-        this.description = description;
-    }
 
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CardCollection>
+  <Cards>
+    <Card name="Card1">
+      <Level>1</Level>
+      <Power>2</Power>
+      <LifePoints>7</LifePoints>
+      <Description>
+        This is the description of the card Card1
+      </Description>
+    </Card>
+    <Card name="Card2">
+      <Level>2</Level>
+      <Power>3</Power>
+      <LifePoints>10</LifePoints>
+      <Description>
+        This is the description of the card Card2
+      </Description>
+    </Card>
+    <Card name="Card3">
+      <Level>4</Level>
+      <Power>5</Power>
+      <LifePoints>14</LifePoints>
+      <Description>
+        This is the description of the card Card3
+      </Description>
+    </Card>
+  </Cards>
+</CardCollection>

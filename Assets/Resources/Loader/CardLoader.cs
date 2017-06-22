@@ -4,12 +4,11 @@ using System.Collections;
 public class CardLoader : MonoBehaviour
 {
 
-    public const string path = "Loader/cards";
+    public const string cardLoaderPath = "Loader/cards";
 
-	// Use this for initialization
 	void Start() 
     {
-        CardContainer cc = CardContainer.Load(path);
+        CardContainer cc = CardContainer.Load(cardLoaderPath);
 
         foreach (Card card in cc.cards)
         {

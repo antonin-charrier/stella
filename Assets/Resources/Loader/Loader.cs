@@ -14,19 +14,14 @@ public class Loader : MonoBehaviour
         DeckContainer dc = DeckContainer.Load(deckLoaderPath);
         DeckCardContainer dcc = DeckCardContainer.Load(deckCardLoaderPath);
 
-        foreach (Card card in cc.cards)
-        {
-            InstantiateCard(card.name, card.level, card.power, card.lifePoints, card.description);
-        }
-
-        foreach (Deck deck in dc.decks)
-        {
-            Debug.Log(deck.name);
-        }
+        Deck deck = dc.decks[0];
+        Debug.Log(deck.name);
 
         foreach (DeckCard deckCard in dcc.deckCards)
         {
-            Debug.Log(deckCard.name);
+            Card card = cc.cards.Find(x => x.name == deckCard.name);
+            if (card != null)
+                InstantiateCard(card.name, card.level, card.power, card.lifePoints, card.description);
         }
 	}
 

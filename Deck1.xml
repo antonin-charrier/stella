@@ -1,0 +1,13 @@
+<DeckCardsCollection>
+  <DeckCards>
+    <DeckCard>
+      <name>Card1</name>
+    </DeckCard>
+    <DeckCard>
+      <name>Card2</name>
+    </DeckCard>
+    <DeckCard>
+      <name>Card3</name>
+    </DeckCard>
+  </DeckCards>
+</DeckCardsCollection>

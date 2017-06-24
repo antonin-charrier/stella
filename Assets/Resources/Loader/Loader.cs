@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Loader : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Loader : MonoBehaviour
         DeckCardContainer dcc = DeckCardContainer.Load(deckCardLoaderPath);
 
         Deck deck = dc.decks[0];
-        Debug.Log(deck.name);
+        DeckCreator.CreateXmlDeckCards(deck, cc.cards);
 
         foreach (DeckCard deckCard in dcc.deckCards)
         {

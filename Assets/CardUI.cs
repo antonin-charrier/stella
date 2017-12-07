@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class CardUI : MonoBehaviour {
-    public void setLabels(string name, int level, int power, int lifePoints, string description)
+    public void SetLabels(string name, int level, int power, int lifePoints, string description)
     {
         Transform titleTransform = gameObject.transform.Find("CardTitleLabel");
         Text nameText = titleTransform.GetComponent<Text>();

@@ -18,7 +18,7 @@ public class DeckCreator
             foreach (Card card in cardsToAdd)
             {
                 xmlWriter.WriteStartElement("DeckCard");
-                xmlWriter.WriteElementString("name", card.name);
+                xmlWriter.WriteElementString("name", card.Name);
                 xmlWriter.WriteEndElement();
             }
 

@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.IO;
-        
+
 [XmlRoot("DeckCardsCollection")]
 public class DeckCardContainer {
 
     [XmlArray("DeckCards")]
     [XmlArrayItem("DeckCard")]
-    public List<DeckCard> deckCards = new List<DeckCard>();
+    public List<DeckCard> Deck = new List<DeckCard>();
 
     public static DeckCardContainer Load(string path)
     {
@@ -24,5 +23,11 @@ public class DeckCardContainer {
         reader.Close();
 
         return deckCards;
+    }
+
+    public static DeckCard RandomDeckCard(List<DeckCard> deck)
+    {
+        int n = Random.Range(0, deck.Count);
+        return deck[n];
     }
 }

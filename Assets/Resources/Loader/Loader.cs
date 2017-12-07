@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class Loader : MonoBehaviour
 {
 
-    public const string cardLoaderPath = "Loader/cards";
-    public const string deckLoaderPath = "Loader/decks";
-    public const string deckCardLoaderPath = "Loader/deck_cards";
+    public const string cardLoaderPath = "Loader/Loaders/cards";
+    public const string deckLoaderPath = "Loader/Loaders/decks";
+    public const string deckCardLoaderPath = "Loader/Loaders/deck_cards";
 
     void Start() 
     {
@@ -16,24 +14,28 @@ public class Loader : MonoBehaviour
         DeckCardContainer dcc = DeckCardContainer.Load(deckCardLoaderPath);
 
         Deck deck = dc.decks[0];
-        DeckCreator.CreateXmlDeckCards(deck, cc.cards);
+        DeckCreator.CreateXmlDeckCards(deck, cc.Cards);
 
-        foreach (DeckCard deckCard in dcc.deckCards)
+        foreach (DeckCard deckCard in dcc.Deck)
         {
-            Card card = cc.cards.Find(x => x.name == deckCard.name);
+            Card card = cc.Cards.Find(x => x.Name == deckCard.name);
             if (card != null)
-                InstantiateCard(card.name, card.level, card.power, card.lifePoints, card.description);
+                Instantiate(card);
         }
-	}
 
-    private GameObject InstantiateCard(string name, int level, int power, int lifePoints, string description)
+        DeckCard randomDeckCard = DeckCardContainer.RandomDeckCard(dcc.Deck);
+        Card randomCard = cc.Cards.Find(x => x.Name == randomDeckCard.name);
+        if (randomCard != null)
+            Instantiate(randomCard);
+
+    }
+
+    private GameObject Instantiate(Card card)
     {
-
         GameObject cardGameObject = (GameObject)Instantiate(Resources.Load("Card/Card"));
         cardGameObject.transform.SetParent(GameObject.Find("HAND").transform);
-        cardGameObject.GetComponent<CardUI>().setLabels(name, level, power, lifePoints, description);
+        cardGameObject.GetComponent<CardUI>().SetLabels(card.Name, card.Level, card.Power, card.LifePoints, card.Description);
 
         return cardGameObject;
     }
-
 }

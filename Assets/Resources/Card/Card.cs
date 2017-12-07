@@ -6,18 +6,18 @@ using System.Xml.Serialization;
 public class Card
 {
     [XmlAttribute("name")]
-    public string name;
+    public string Name;
 
     [XmlElement("Level")]
-    public int level;
+    public int Level;
 
     [XmlElement("Power")]
-    public int power;
+    public int Power;
 
     [XmlElement("LifePoints")]
-    public int lifePoints;
+    public int LifePoints;
 
     [XmlElement("Description")]
-    public string description;
+    public string Description;
 
 }

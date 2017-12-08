@@ -1,7 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Xml;
+﻿using System.Xml;
 using System.Xml.Serialization;
+using UnityEngine;
 
 public class Card
 {
@@ -20,4 +19,12 @@ public class Card
     [XmlElement("Description")]
     public string Description;
 
+    public GameObject Instantiate()
+    {
+        GameObject cardGameObject = (GameObject)Object.Instantiate(Resources.Load("Card/Card"));
+        cardGameObject.transform.SetParent(GameObject.Find("HAND").transform);
+        cardGameObject.GetComponent<CardUI>().SetLabels(Name, Level, Power, LifePoints, Description);
+
+        return cardGameObject;
+    }
 }

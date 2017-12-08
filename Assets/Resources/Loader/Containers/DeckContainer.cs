@@ -9,7 +9,7 @@ public class DeckContainer {
 
     [XmlArray("Decks")]
     [XmlArrayItem("Deck")]
-    public List<Deck> decks = new List<Deck>();
+    public List<Deck> Decks = new List<Deck>();
 
     public static DeckContainer Load(string path)
     {

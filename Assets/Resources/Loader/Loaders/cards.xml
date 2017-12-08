@@ -25,5 +25,21 @@
         This is the description of the card Card3
       </Description>
     </Card>
+    <Card name="Skarsnik">
+      <Level>8</Level>
+      <Power>9</Power>
+      <LifePoints>16</LifePoints>
+      <Description>
+        Fourbe, sournois et stratège. Né en Irlande.
+      </Description>
+    </Card>
+    <Card name="Card4">
+      <Level>6</Level>
+      <Power>6</Power>
+      <LifePoints>20</LifePoints>
+      <Description>
+        This is the description of the card Card4
+      </Description>
+    </Card>
   </Cards>
 </CardCollection>

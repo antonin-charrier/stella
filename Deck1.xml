@@ -9,5 +9,11 @@
     <DeckCard>
       <name>Card3</name>
     </DeckCard>
+    <DeckCard>
+      <name>Skarsnik</name>
+    </DeckCard>
+    <DeckCard>
+      <name>Card4</name>
+    </DeckCard>
   </DeckCards>
 </DeckCardsCollection>

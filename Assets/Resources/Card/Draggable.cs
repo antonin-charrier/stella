@@ -51,15 +51,14 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
             placeholder.transform.SetSiblingIndex(newSiblingIndex);
         }
-
     }
 
 	public void OnEndDrag(PointerEventData eventData) {
-        transform.SetParent (parentToReturnTo);
-        transform.SetSiblingIndex (placeholder.transform.GetSiblingIndex ());
-		GetComponent<CanvasGroup> ().blocksRaycasts = true;
+        transform.SetParent(parentToReturnTo);
+        transform.SetSiblingIndex(placeholder.transform.GetSiblingIndex());
+        GetComponent<CanvasGroup>().blocksRaycasts = true;
 
-		Destroy (placeholder);
-	}
+        Destroy(placeholder);
+    }
 
 }

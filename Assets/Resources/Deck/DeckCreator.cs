@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Xml;
+using Assets.Utils;
 
 public class DeckCreator
 {
@@ -26,6 +24,6 @@ public class DeckCreator
             xmlWriter.WriteEndElement();
         }
 
-        doc.Save(deck.name + ".xml");
+        doc.Save(XmlAccessor.DecksFolderPath + deck.name + ".xml");
     }
 }
